@@ -22,7 +22,6 @@ public class Station extends Model {
     this.name = name;
   }
 
-
   public static String codeToString(int code) {
 
     switch (code) {
@@ -128,8 +127,6 @@ public class Station extends Model {
       return -1;
     }
   }
-
-
 
   private String windDirectionText() {
     if (this.readings.size() == 0) {
