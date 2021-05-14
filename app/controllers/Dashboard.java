@@ -8,7 +8,6 @@ import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
 
-import models.Station.codeToString;
 import static play.Logger.*;
 
 public class Dashboard extends Controller {
@@ -18,7 +17,7 @@ public class Dashboard extends Controller {
     List<Station> stations = Station.findAll(); //finding all Station from the db
     for (Station s : stations) {
       if (s.readings.size() > 0) {
-        s.setWeatherReport(codeToString(s.readings.get(s.readings.size() - 1).code));
+        s.setWeatherReport(s.codeToString(s.readings.get(s.readings.size() - 1).code));
       }
     }
     render("dashboard.html", stations);
