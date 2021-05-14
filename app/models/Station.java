@@ -2,7 +2,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.text.DecimalFormat;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -170,15 +170,16 @@ public class Station extends Model {
     return "Unknown";
   }
 
-  private double windChill() {
+  private String windChill() {
     if (this.readings.size() == 0) {
-      return 0;
+      return "No Reading";
     }
     double t = this.readings.get(this.readings.size() -1).temperature;
     double v = this.readings.get(this.readings.size() -1).windSpeed;
 
     double wc = 13.12 + 0.6215 * t - 11.37 * (Math.pow(v, 0.16)) + 0.3965 * t * (Math.pow(v, 0.16));
+    DecimalFormat decimalformat = new DecimalFormat("0.00");
+    return decimalformat.format(wc);
 
-    return wc;
   }
 }
