@@ -3,6 +3,8 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 import java.text.DecimalFormat;
+import java.util.HashMap;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -22,34 +24,17 @@ public class Station extends Model {
     this.name = name;
   }
 
-  public static String codeToString(int code) {
-
-    switch (code) {
-      case 100:
-        return "Clear";
-
-      case 200:
-        return "Partial Clouds";
-
-      case 300:
-        return "Cloudy";
-
-      case 400:
-        return "Light Showers";
-
-      case 500:
-        return "Heavy Showers";
-
-      case 600:
-        return "Rain";
-
-      case 700:
-        return "Snow";
-
-      case 800:
-        return "Thunder";
-    }
-    return "test";
+  public String codeToString(int code) {
+    HashMap<Integer, String> weatherDescription = new HashMap<>();
+    weatherDescription.put(100, "Clear");
+    weatherDescription.put(200, "Partial clouds");
+    weatherDescription.put(300, "Cloudy");
+    weatherDescription.put(400, "Light showers");
+    weatherDescription.put(500, "Heavy showers");
+    weatherDescription.put(600, "Rain");
+    weatherDescription.put(700, "Snow");
+    weatherDescription.put(800, "Thunder");
+    return weatherDescription.get(code);
   }
 
   public String latestTemperature() {

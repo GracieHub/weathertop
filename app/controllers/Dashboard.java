@@ -8,15 +8,12 @@ import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
 
-import static models.Station.codeToString;
+import models.Station.codeToString;
 import static play.Logger.*;
 
 public class Dashboard extends Controller {
   public static void index() {
     info("Rendering Dashboard");
-
-  //  List<Station> stations = Station.findAll();
-  //  render("dashboard.html", stations);
 
     List<Station> stations = Station.findAll(); //finding all Station from the db
     for (Station s : stations) {

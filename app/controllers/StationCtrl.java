@@ -8,7 +8,7 @@ import play.Logger;
 import play.mvc.Controller;
 
 
-import static models.Station.codeToString;
+import models.Station.codeToString;
 
 public class StationCtrl extends Controller
 {
