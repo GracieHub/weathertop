@@ -27,12 +27,6 @@ public class StationCtrl extends Controller
         reading.delete();
         render("station.html", station);
     }
-    public static void deletestation (Long id, Long stationid) {
-        Station station = Station.findById(id);
-        Logger.info("Removing " + station.name);
-        station.delete();
-        render("dashboard.html", station);
-    }
 
     public static void addReading(Long id, int code, float temperature, double windSpeed, int pressure, int windDirection)
     {
@@ -42,6 +36,4 @@ public class StationCtrl extends Controller
         station.save();
         redirect ("/stations/" + id);
     }
-
-
 }
