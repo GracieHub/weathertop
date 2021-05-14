@@ -1,5 +1,4 @@
-# play-template-1
+# weathertop
 
-This is a sample starter project for this course:
+This is my assignment for Programming and Web Dev
 
-- [Web Development](https://tutors-design.netlify.com/course/wit-hdip-comp-sci-2020-web-development.netlify.com)
