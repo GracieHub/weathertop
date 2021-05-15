@@ -17,8 +17,8 @@ public class Dashboard extends Controller {
       Logger.info("Rendering Dashboard");
       Member member = Accounts.getLoggedInMember();
       List<Station> stations = member.stations;
-      for (Station s : stations) {
 
+      for (Station s : stations) {
         if (s.readings.size() > 0) {
           s.setWeatherReport(s.codeToString(s.readings.get(s.readings.size() - 1).code));
           s.setWeatherIcon(s.weatherIcon(s.readings.get(s.readings.size() -1).code));

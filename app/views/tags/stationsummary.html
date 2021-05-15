@@ -2,7 +2,7 @@
 <div class = "ui five cards">
   <div class = "card">
     <span class="content centre">
-    <h2> ${_station.name}</h2>
+    <h2> ${_station.name}<i class= "large location arrow icon"style="color:	#7FFF00"></i></h2>
     <br>Lat: ${_station.latitude}
     <br> Lng: ${_station.longitude}
     </span>
@@ -15,7 +15,7 @@
   </div>
   <div class = "card">
     <span class="content centre">
-      <h2>Temp <i class= "large temperature low icon" style="color:#a55a55"></i></h2>
+      <h2>Temp <i class= "large temperature low icon" style="color:#87ceeb"></i></h2>
       <br>${_station.latestTemperature()} C<br>
       <br>${_station.celciusToF()} F
     </span>
@@ -30,7 +30,7 @@
   </div>
   <div class = "card">
     <span class="content centre">
-      <h2>Pressure <i  class="large pressure icon" style="color:#0000ff"></i></h2>
-      <br>${_station.latestPressure()}</span>
+      <h2>Pressure <i  class="large compass arrows icon" style="color:#a55a55"></i></h2>
+      <br>${_station.latestPressure()} hpa</span>
   </div>
 </div>
