@@ -9,20 +9,20 @@
   </div>
   <div class = "card">
     <span class="content centre">
-    <h2>Weather <i class=  "${_station.weatherIcon}"></i></h2>
+    <h2>Weather <i class= "large ${_station.weatherIcon}"style="color:#FF69B4"></i></h2>
     <br>${_station.weatherReport}
     </span>
   </div>
   <div class = "card">
     <span class="content centre">
-      <h2>Temp <i class=  "temperature low icon" style="color:#a55a55"></i></h2>
+      <h2>Temp <i class= "large temperature low icon" style="color:#a55a55"></i></h2>
       <br>${_station.latestTemperature()} C<br>
       <br>${_station.celciusToF()} F
     </span>
   </div>
   <div class = "card">
     <span class="content centre">
-      <h2>Wind</h2>
+      <h2>Wind <i  class=" large wind icon" style="color:#0000ff"></i></h2>
       <br>${_station.calcBeaufort()} bft<br>
       <br>${_station.windDirectionText()}<br>
       <br>Feels like ${_station.windChill()}
@@ -30,7 +30,7 @@
   </div>
   <div class = "card">
     <span class="content centre">
-      <h2>Pressure</h2>
+      <h2>Pressure <i  class="large pressure icon" style="color:#0000ff"></i></h2>
       <br>${_station.latestPressure()}</span>
   </div>
 </div>
