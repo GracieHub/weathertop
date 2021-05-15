@@ -2,28 +2,27 @@
 <div class = "ui five cards">
   <div class = "card">
     <span class="content centre">
-    <h1> ${_station.name}</h1>
+    <h2> ${_station.name}</h2>
     <br>Lat: ${_station.latitude}
     <br> Lng: ${_station.longitude}
     </span>
   </div>
   <div class = "card">
     <span class="content centre">
-    <h3>Weather</h3>
-      <i class="${_station.weatherIcon}"></i>
+    <h2>Weather <i class=  "${_station.weatherIcon}"></i></h2>
     <br>${_station.weatherReport}
     </span>
   </div>
   <div class = "card">
     <span class="content centre">
-      <h3>Temp</h3>
+      <h2>Temp <i class=  "temperature low icon" style="color:#a55a55"></i></h2>
       <br>${_station.latestTemperature()} C<br>
       <br>${_station.celciusToF()} F
     </span>
   </div>
   <div class = "card">
     <span class="content centre">
-      <h3>Wind</h3>
+      <h2>Wind</h2>
       <br>${_station.calcBeaufort()} bft<br>
       <br>${_station.windDirectionText()}<br>
       <br>Feels like ${_station.windChill()}
@@ -31,7 +30,7 @@
   </div>
   <div class = "card">
     <span class="content centre">
-      <h3>Pressure</h3>
+      <h2>Pressure</h2>
       <br>${_station.latestPressure()}</span>
   </div>
 </div>
