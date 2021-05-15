@@ -21,6 +21,7 @@ public class Station extends Model {
   @OneToMany(cascade = CascadeType.ALL)
   public List<Reading> readings = new ArrayList<Reading>();
   public String weatherReport;
+  public String weatherIcon;
 
   public Station(String name, double latitude, double longitude) {
     this.name = name;
@@ -29,16 +30,22 @@ public class Station extends Model {
   }
 
   public String codeToString(int code) {
-    HashMap<Integer, String> weatherDescription = new HashMap<>();
-    weatherDescription.put(100, "Clear");
-    weatherDescription.put(200, "Partial clouds");
-    weatherDescription.put(300, "Cloudy");
-    weatherDescription.put(400, "Light showers");
-    weatherDescription.put(500, "Heavy showers");
-    weatherDescription.put(600, "Rain");
-    weatherDescription.put(700, "Snow");
-    weatherDescription.put(800, "Thunder");
-    return weatherDescription.get(code);
+
+    HashMap<Integer, String> weatherReport = new HashMap<>();
+    weatherReport.put(100, "Clear");
+    weatherReport.put(200, "Partial clouds");
+    weatherReport.put(300, "Cloudy");
+    weatherReport.put(400, "Light showers");
+    weatherReport.put(500, "Heavy showers");
+    weatherReport.put(600, "Rain");
+    weatherReport.put(700, "Snow");
+    weatherReport.put(800, "Thunder");
+
+    return weatherReport.get(code);
+  }
+
+  public void setWeatherReport(String weatherReport) {
+    this.weatherReport = weatherReport;
   }
 
   public String latestTemperature() {
@@ -77,10 +84,6 @@ public class Station extends Model {
 
       return Fahrenheit;
     }
-  }
-
-  public void setWeatherReport(String weatherReport) {
-    this.weatherReport = weatherReport;
   }
 
   private int calcBeaufort() {
@@ -169,6 +172,24 @@ public class Station extends Model {
     double wc = 13.12 + 0.6215 * t - 11.37 * (Math.pow(v, 0.16)) + 0.3965 * t * (Math.pow(v, 0.16));
     DecimalFormat decimalformat = new DecimalFormat("0.00");
     return decimalformat.format(wc);
+  }
 
+  public String weatherIcon (int code) {
+
+    HashMap<Integer, String> weatherIcons = new HashMap<>();
+    weatherIcons.put(100, "fa-sun");
+    weatherIcons.put(200, "fa-cloud-sun");
+    weatherIcons.put(300, "fa-cloud");
+    weatherIcons.put(400, "fa-cloud-rain");
+    weatherIcons.put(500, "fa-cloud-showers-heavy");
+    weatherIcons.put(600, "fa-snowflake");
+    weatherIcons.put(700, "fa-snowflake");
+    weatherIcons.put(800, "fa-poo-storm-icon");
+
+    return weatherIcons.get(code);
+  }
+
+  public void setWeatherIcon (String weatherIcon) {
+    this.weatherIcon = weatherIcon;
   }
 }
