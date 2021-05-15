@@ -7,12 +7,12 @@ import play.db.jpa.Model;
 public class Reading extends Model
 {
   public int code;
-  public float temperature;
+  public double temperature;
   public double windSpeed;
   public int pressure;
   public double windDirection;
   
-  public Reading(int code, float temperature, double windSpeed, int pressure, int windDirection)
+  public Reading(int code, double temperature, double windSpeed, int pressure, int windDirection)
   {
     this.code = code;
     this.temperature = temperature;
@@ -25,7 +25,7 @@ public class Reading extends Model
     return this.code;
   }
 
-  public float getTemperature(){
+  public double getTemperature(){
     return this.temperature;
   }
 
@@ -41,7 +41,7 @@ public class Reading extends Model
     this.code = code;
   }
 
-  public void setTemperature(float temperature){
+  public void setTemperature(double temperature){
     this.temperature = temperature;
   }
 

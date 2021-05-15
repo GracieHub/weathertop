@@ -6,6 +6,7 @@ import models.Station;
 import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
+import utils.StationAnalytics;
 
 
 public class StationCtrl extends Controller
@@ -14,6 +15,8 @@ public class StationCtrl extends Controller
     {
         Station station = Station.findById(id);
         Logger.info ("Station id = " + id);
+        station.minimumTemp = StationAnalytics.getMinTemp(station.readings);
+        //station.maximumTemp = StationAnalytics.getMaxTemp(station.readings);
         render("station.html", station);
     }
 

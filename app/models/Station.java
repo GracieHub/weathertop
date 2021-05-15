@@ -22,6 +22,9 @@ public class Station extends Model {
   public List<Reading> readings = new ArrayList<Reading>();
   public String weatherReport;
   public String weatherIcon;
+  public double minimumTemp;
+  //public double maximumTemp;
+
 
   public Station(String name, double latitude, double longitude) {
     this.name = name;
@@ -73,12 +76,12 @@ public class Station extends Model {
     }
   }
 
-  public float celciusToF() {
+  public double celciusToF() {
 
     if (this.readings.size() == 0) {
       return 0;
     } else {
-      float Fahrenheit = 0;
+      double Fahrenheit = 0;
 
       Fahrenheit = Fahrenheit + this.readings.get(this.readings.size() - 1).temperature * (9 / 5) + 32;
 
@@ -192,4 +195,5 @@ public class Station extends Model {
   public void setWeatherIcon (String weatherIcon) {
     this.weatherIcon = weatherIcon;
   }
+
 }
