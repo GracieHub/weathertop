@@ -22,7 +22,7 @@ public class Dashboard extends Controller {
     }
 
   public static void deleteStation(Long id) {
-    Logger.info("Deleting a Playlist");
+    Logger.info("Deleting a Station");
     Member member = Accounts.getLoggedInMember();
     Station playlist = Station.findById(id);
     member.stations.remove(playlist);
@@ -31,13 +31,14 @@ public class Dashboard extends Controller {
     redirect ("/dashboard");
   }
 
-  public static void addStation(String name)
+  public static void addStation(String name, double latitude, double longitude)
     {
-      Logger.info("Adding a Playlist");
       Member member = Accounts.getLoggedInMember();
-      Station station = new Station (name);
+      Station station = new Station (name, latitude, longitude);
+      station.save();
       member.stations.add(station);
       member.save();
+      Logger.info("Adding a Station" + station + "to user" + member.lastname);
       redirect ("/dashboard");
     }
 }

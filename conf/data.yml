@@ -28,32 +28,25 @@ Reading(r4):
 
 Station(s1):
   name: Tramore
-  lat: 52.160
-  lng: -7.152
+  latitude: 52.160
+  longitude: -7.152
   readings:
     - r1
     - r2
 
 Station(s2):
   name: Dunmore
-  lat: 52.149
-  lng: -6.994
+  latitude: 52.149
+  longitude: -6.994
   readings:
     - r3
     - r4
 
 Member(m1):
-  firstname: homer
-  lastname: simpson
+  firstname: Homer
+  lastname: Simpson
   email: homer@simpson.com
   password: secret
   stations:
     - s1
     - s2
-
-Member(m2):
-  firstname: marge
-  lastname: simpson
-  email: marge@simpson.com
-  password: secret
-    - s1
