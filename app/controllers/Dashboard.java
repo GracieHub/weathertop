@@ -32,6 +32,7 @@ public class Dashboard extends Controller {
         }
       }
       render("dashboard.html", member, stations);
+
     }
 
   public static void deleteStation(Long id) {

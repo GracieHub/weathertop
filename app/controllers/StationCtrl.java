@@ -2,10 +2,12 @@ package controllers;
 
 import java.util.List;
 
+import models.Member;
 import models.Station;
 import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
+import utils.StationAnalytics;
 
 
 public class StationCtrl extends Controller
@@ -14,7 +16,22 @@ public class StationCtrl extends Controller
     {
         Station station = Station.findById(id);
         Logger.info ("Station id = " + id);
-        render("station.html", station);
+
+        Member member = Accounts.getLoggedInMember();
+        List<Station> stations = member.stations;
+        for (Station s : stations) {
+            if (s.readings.size() > 0) {
+                s.setWeatherReport(s.codeToString(s.readings.get(s.readings.size() - 1).code));
+                s.setWeatherIcon(s.weatherIcon(s.readings.get(s.readings.size() -1).code));
+                s.minimumTemp = StationAnalytics.getMinTemp(s.readings).temperature;
+                s.maximumTemp = StationAnalytics.getMaxTemp(s.readings).temperature;
+                s.minimumWind = StationAnalytics.getMinWind(s.readings).windSpeed;
+                s.maximumWind = StationAnalytics.getMaxWind(s.readings).windSpeed;
+                s.maximumPressure = StationAnalytics.getMaxPressure(s.readings).pressure;
+                s.minimumPressure = StationAnalytics.getMinPressure(s.readings).pressure;
+            }
+        }
+        render("station.html", member, station);
     }
 
     public static void deletereading(Long id, Long readingid)
