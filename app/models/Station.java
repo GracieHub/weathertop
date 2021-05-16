@@ -11,8 +11,6 @@ import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
 
-import static play.Logger.info;
-
 @Entity
 public class Station extends Model {
   public String name;
@@ -23,8 +21,11 @@ public class Station extends Model {
   public String weatherReport;
   public String weatherIcon;
   public double minimumTemp;
-  //public double maximumTemp;
-
+  public double maximumTemp;
+  public double minimumWind;
+  public double maximumWind;
+  public double maximumPressure;
+  public double minimumPressure;
 
   public Station(String name, double latitude, double longitude) {
     this.name = name;
@@ -192,8 +193,8 @@ public class Station extends Model {
     return weatherIcons.get(code);
   }
 
-  public void setWeatherIcon (String weatherIcon) {
-    this.weatherIcon = weatherIcon;
-  }
+   public void setWeatherIcon (String weatherIcon) {
+     this.weatherIcon = weatherIcon;
+   }
 
 }

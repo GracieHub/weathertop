@@ -6,7 +6,6 @@ import models.Station;
 import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
-import utils.StationAnalytics;
 
 
 public class StationCtrl extends Controller
@@ -15,8 +14,6 @@ public class StationCtrl extends Controller
     {
         Station station = Station.findById(id);
         Logger.info ("Station id = " + id);
-        station.minimumTemp = StationAnalytics.getMinTemp(station.readings);
-        //station.maximumTemp = StationAnalytics.getMaxTemp(station.readings);
         render("station.html", station);
     }
 
@@ -31,7 +28,7 @@ public class StationCtrl extends Controller
         render("station.html", station);
     }
 
-    public static void addReading(Long id, int code, float temperature, double windSpeed, int pressure, int windDirection)
+    public static void addReading(Long id, int code, double temperature, double windSpeed, int pressure, int windDirection)
     {
         Reading reading = new Reading(code, temperature, windSpeed, pressure, windDirection);
         Station station = Station.findById(id);
