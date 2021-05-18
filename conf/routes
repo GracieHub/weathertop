@@ -4,11 +4,18 @@
 
 # Home page
 GET     /                                           Start.index
+
+GET    /signup                                      Accounts.signup
+GET    /login                                       Accounts.login
+POST   /register                                    Accounts.register
+POST   /authenticate                                Accounts.authenticate
+GET    /logout                                      Accounts.logout
+POST   /account/edit                               Accounts.editProfile
+
 GET     /dashboard                                  Dashboard.index
 GET     /dashboard/deletestation/{id}               Dashboard.deleteStation
 POST    /dashboard/addstation                       Dashboard.addStation
 POST    /dashboard/stationsummary                   Dashboard.stationsummary
-
 
 GET     /about                                      About.index
 GET     /admin                                      Admin.index
@@ -16,11 +23,6 @@ GET     /stations/{id}                              StationCtrl.index
 POST    /stations/{id}/addreading                   StationCtrl.addReading
 GET     /stations/{id}/deletereading/{readingid}    StationCtrl.deleteReading
 
-GET    /signup                                      Accounts.signup
-GET    /login                                       Accounts.login
-POST   /register                                    Accounts.register
-POST   /authenticate                                Accounts.authenticate
-GET    /logout                                      Accounts.logout
 
 
 

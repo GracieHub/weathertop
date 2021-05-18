@@ -1,5 +1,6 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import models.Member;
@@ -8,6 +9,7 @@ import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
 import utils.StationAnalytics;
+import java.util.Date;
 
 
 public class StationCtrl extends Controller
@@ -19,6 +21,7 @@ public class StationCtrl extends Controller
 
         Member member = Accounts.getLoggedInMember();
         List<Station> stations = member.stations;
+
         for (Station s : stations) {
             if (s.readings.size() > 0) {
                 s.setWeatherReport(s.codeToString(s.readings.get(s.readings.size() - 1).code));
@@ -47,10 +50,11 @@ public class StationCtrl extends Controller
 
     public static void addReading(Long id, int code, double temperature, double windSpeed, int pressure, int windDirection)
     {
-        Reading reading = new Reading(code, temperature, windSpeed, pressure, windDirection);
         Station station = Station.findById(id);
-        station.readings.add(reading);
+        Reading newReading = new Reading(new Date(), code, temperature, windSpeed, pressure, windDirection);
+        station.readings.add(newReading);
         station.save();
         redirect ("/stations/" + id);
     }
+
 }

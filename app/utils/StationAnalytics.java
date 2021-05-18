@@ -2,6 +2,7 @@ package utils;
 
 import models.Reading;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class StationAnalytics {
@@ -32,7 +33,8 @@ public class StationAnalytics {
         }
         return maxTemp;
     }
-    public static Reading getMinWind (List<Reading> readings) {
+
+    public static Reading getMinWind(List<Reading> readings) {
         Reading minWind = null;
         if (readings.size() > 0) {
             minWind = readings.get(0);
@@ -45,7 +47,7 @@ public class StationAnalytics {
         return minWind;
     }
 
-    public static Reading getMaxWind (List<Reading> readings) {
+    public static Reading getMaxWind(List<Reading> readings) {
         Reading maxWind = null;
         if (readings.size() > 0) {
             maxWind = readings.get(0);
@@ -58,7 +60,7 @@ public class StationAnalytics {
         return maxWind;
     }
 
-    public static Reading getMaxPressure (List<Reading> readings) {
+    public static Reading getMaxPressure(List<Reading> readings) {
         Reading maxPressure = null;
         if (readings.size() > 0) {
             maxPressure = readings.get(0);
@@ -70,7 +72,8 @@ public class StationAnalytics {
         }
         return maxPressure;
     }
-    public static Reading getMinPressure (List<Reading> readings) {
+
+    public static Reading getMinPressure(List<Reading> readings) {
         Reading minPressure = null;
         if (readings.size() > 0) {
             minPressure = readings.get(0);
@@ -82,6 +85,21 @@ public class StationAnalytics {
         }
         return minPressure;
     }
+
+    public static String dateTimeStamp (List<Reading> readings) {
+        String dtStamp = null;
+        if (readings.size() > 0)
+            for (Reading reading : readings) {
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy hh:mm");
+                reading.prettyTime = formatter.format(reading.date);
+                dtStamp = reading.prettyTime;
+            }
+        return dtStamp;
+    }
+
+
+
 }
+
 
 

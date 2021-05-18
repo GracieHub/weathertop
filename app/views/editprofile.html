@@ -1,11 +1,12 @@
 #{extends 'main.html' /}
-#{set title:'Signup' /}
-#{welcomemenu id:"signup"/}
+#{set title:'Stations' /}
+
+#{menu id:"editprofile", member:member/}
 
 <section class="ui two column grid basic middle aligned segment">
   <div class="column">
-    <form class="ui stacked segment form" action="/register" method="POST">
-      <h3 class="ui header">Register</h3>
+    <form class="ui stacked segment form" action="/account/edit" method="POST">
+      <h3 class="ui header">Edit your Profile</h3>
       <div class="two fields">
         <div class="field">
           <label>First Name</label>
@@ -17,17 +18,14 @@
         </div>
       </div>
       <div class="field">
-        <label>Email</label>
-        <input placeholder="Email" type="text" name="email">
+        <label>Change Email</label>
+        <input placeholder="Type new Email" type="text" name="email">
       </div>
       <div class="field">
-        <label>Password</label>
-        <input type="password" name="password">
+        <label>Change Password</label>
+        <input type="Type password" name="password">
       </div>
-      <button class="ui blue submit button">Submit</button>
+      <button class="ui blue submit button">Save New Details</button>
     </form>
-  </div>
-  <div class="column">
-    <img class="ui image" src="/public/images/signupweather.jpg">
   </div>
 </section>
