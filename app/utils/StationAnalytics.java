@@ -1,8 +1,6 @@
 package utils;
 
 import models.Reading;
-
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class StationAnalytics {
@@ -85,19 +83,6 @@ public class StationAnalytics {
         }
         return minPressure;
     }
-
-    public static String dateTimeStamp (List<Reading> readings) {
-        String dtStamp = null;
-        if (readings.size() > 0)
-            for (Reading reading : readings) {
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy hh:mm");
-                reading.prettyTime = formatter.format(reading.date);
-                dtStamp = reading.prettyTime;
-            }
-        return dtStamp;
-    }
-
-
 
 }
 
