@@ -20,26 +20,26 @@
         </thead>
         <tbody>
         #{list items:readings, as:'reading'}
-            <tr>
-             <td>
+        <tr>
+            <td>
                 ${reading.id}
-             </td>
-             <td>
+            </td>
+            <td>
                 ${reading.code}
-             </td>
-             <td>
+            </td>
+            <td>
                 ${reading.temp}
-             </td>
-             <td>
+            </td>
+            <td>
                 ${reading.windSpeed}
-             </td>
-             <td>
+            </td>
+            <td>
                 ${reading.pressure}
-             </td>
-             <td>
+            </td>
+            <td>
                 ${reading.windDirection}
-             </td>
-            </tr>
+            </td>
+        </tr>
         #{/list}
         </tbody>
     </table>

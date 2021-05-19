@@ -10,7 +10,7 @@ GET    /login                                       Accounts.login
 POST   /register                                    Accounts.register
 POST   /authenticate                                Accounts.authenticate
 GET    /logout                                      Accounts.logout
-POST   /account/edit                               Accounts.editProfile
+POST   /account/edit                                Accounts.editProfile
 
 GET     /dashboard                                  Dashboard.index
 GET     /dashboard/deletestation/{id}               Dashboard.deleteStation

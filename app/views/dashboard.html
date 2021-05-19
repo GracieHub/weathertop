@@ -5,18 +5,18 @@
 
 #{list items:stations, as:'station'}
 <section class="ui segment">
-  <h2 class="ui huge center aligned violet header">
-    ${station.name}    <!--station names being called from the constructor Station-->
-  </h2>
-  #{stationsummary station:station /}
+    <h2 class="ui huge center aligned violet header">
+        ${station.name}    <!--station names being called from the constructor Station-->
+    </h2>
+    #{stationsummary station:station /}
 </section>
 <section class="ui segment">
-  <a href="/stations/${station.id}" class="ui icon button">
-    <i class="icon folder open"></i>
-  </a>
-  <a href="/dashboard/deletestation/${station.id}" class="ui icon button">
-    <i class="icon trash"></i>
-  </a>
+    <a href="/stations/${station.id}" class="ui icon button">
+        <i class="icon folder open"></i>
+    </a>
+    <a href="/dashboard/deletestation/${station.id}" class="ui icon button">
+        <i class="icon trash"></i>
+    </a>
 </section>
 #{/list}
 #{addstation /}
