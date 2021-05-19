@@ -33,19 +33,34 @@ public class Station extends Model {
     this.longitude = longitude;
   }
 
-  public String codeToString(int code) {
+  public static String codeToString(int code) {
 
-    HashMap<Integer, String> weatherReport = new HashMap<>();
-    weatherReport.put(100, "Clear");
-    weatherReport.put(200, "Partial clouds");
-    weatherReport.put(300, "Cloudy");
-    weatherReport.put(400, "Light showers");
-    weatherReport.put(500, "Heavy showers");
-    weatherReport.put(600, "Rain");
-    weatherReport.put(700, "Snow");
-    weatherReport.put(800, "Thunder");
+    switch (code) {
+      case 100:
+        return "Clear";
 
-    return weatherReport.get(code);
+      case 200:
+        return "Partial Clouds";
+
+      case 300:
+        return "Cloudy";
+
+      case 400:
+        return "Light Showers";
+
+      case 500:
+        return "Heavy Showers";
+
+      case 600:
+        return "Rain";
+
+      case 700:
+        return "Snow";
+
+      case 800:
+        return "Thunder";
+    }
+    return " ";
   }
 
   public void setWeatherReport(String weatherReport) {

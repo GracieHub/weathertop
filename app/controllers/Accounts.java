@@ -50,7 +50,7 @@ public class Accounts extends Controller {
         }
         return member;
     }
-    public static void editProfile(String firstName, String lastName, String email, String password) {
+    public static void editProfile (String firstName, String lastName, String email, String password) {
 
         Member member = Accounts.getLoggedInMember();
 
