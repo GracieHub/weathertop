@@ -51,7 +51,9 @@ public class Accounts extends Controller {
         return member;
     }
 
-    public static void editProfile(String firstName, String lastName, String email, String password) {
+/*    attempt at edit profile below - unsuccessful
+
+     public static void editProfile(String firstName, String lastName, String email, String password) {
 
         Member member = Accounts.getLoggedInMember();
 
@@ -64,5 +66,5 @@ public class Accounts extends Controller {
         member.save();
         render("editprofile.html", member);
 
-    }
+    }*/
 }
